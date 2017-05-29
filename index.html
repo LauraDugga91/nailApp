@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Nail Your Date</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link type="image/png" href="images/favicongrey.png" rel="icon">
+        <link href="https://fonts.googleapis.com/css?family=Rochester|Yantramanav:300,500" rel="stylesheet">
+        <link href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    </head>
+    <body>
+        <div class="logo">
+            <img src="images/logopink.png" alt="logo that says how to nail your date">
+        </div>
+        <div class="container">
+            <h2>Fill these out to see which nail polish you should wear!</h2>
+            <form class="nailForm" action="">
+                <div class="dateNumberSelector">
+                    <p class="dateNumber">I'm going on date number: </p>
+                    <label for="date1"><input type="radio" name="dateNumber" value="1" id="date1" class="dateNumber">One</label>
+                    <label for="date2"><input type="radio" name="dateNumber" value="2" id="date2" class="dateNumber">Two</label>
+                    <label for="date3"><input type="radio" name="dateNumber" value="3" id="date3" class="dateNumber">Three</label>
+                    <label for="dateBeyond"><input type="radio" name="dateNumber" value="beyond" id="dateBeyond" class="dateNumber">Beyond</label>
+                </div>
+                <div class="dateActivitySelector">
+                    <p class="dateActivity">What sort of activity I'll be doing: </p>
+                    <label for="outdoorsy"><input type="radio" name="activity" value="outdoorsy" id="outdoorsy" class="activity">Outdoorsy</label>
+                    <label for="casual"><input type="radio" name="activity" value="casual" id="casual" class="activity">Casual</label>
+                    <label for="playful"><input type="radio" name="activity" value="playful" id="playful" class="activity">Playful</label>
+                    <label for="romantic"><input type="radio" name="activity" value="romantic" id="romantic" class="activity">Romantic</label>
+                    <input class="button" type="submit" name="submit" value="Polish Me!">
+                </div>
+            </form>
+        </div>
+        <div class="allResults">
+            <div class="results">
+            </div>
+            <div class="entireFinger clearfix">
+                <div class="resultsContainer">
+                </div>
+                <div id="finger">
+                </div>
+            </div>
+            <div class="topcoatResult clearfix">
+            </div>
+            <div id="slider">
+            </div>
+            <p class="sliderInfo"></p>
+        </div>
+        <footer class="clearfix">
+            <p>&copy; Laura Duggan 2017</p>
+            <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=I%20just%20found%20out%20which%20nail%20polish%20to%20wear!" data-size="large"></a>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>

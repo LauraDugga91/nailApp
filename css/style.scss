@@ -1,0 +1,52 @@
+$darkGrey: #606368;
+$medGrey: #6c7b82;
+$pinkRose: #ebd3d1;
+
+@import "../partials/setup";
+@import "../partials/nailform";
+@import "../partials/results";
+
+
+body {
+	background-color: $darkGrey;
+	color: $pinkRose;
+	text-align: center;
+	font-family: 'Yantramanav', sans-serif;
+	font-weight: 300;
+	font-size: 20px;
+}
+
+.container {
+	background-color: $medGrey;
+	margin: 0 auto;
+	padding-bottom: 30px;
+	padding-top: 30px;
+}
+
+.logo {
+	text-align: center;
+}
+
+footer {
+	height:100px;
+	background-color: $medGrey;
+	margin-top: 50px;
+	font-size: 15px;
+	p {
+		padding-top: 20px;
+	}
+}
+
+@media (max-width: 600px) {
+	label {
+		display: block;
+		text-align: left;
+		margin-top: 20px;
+		input[class="activity"] {
+			margin-right: 20px;
+		}
+		input[class="dateNumber"] {
+			margin-right: 20px;
+		}
+	}
+}

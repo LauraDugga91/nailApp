@@ -1,0 +1,66 @@
+h2 {
+	margin: 20px; 
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: white;
+	font-size: 25px;
+}
+
+.nailForm p{
+	padding-top: 30px;
+}
+
+.button {
+	display:block;
+	text-align: center;
+	border: 3px solid #DBFBF8;
+	background-color: white;
+	box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.15);
+	color: $darkGrey;
+	padding: 10px 30px;
+	margin: 50px auto 30px auto;
+	font-family: 'Rochester', serif;
+	font-size: 30px;
+	&:hover {
+	color: white;
+	background-color: $darkGrey;
+	transition: 0.2s;
+	}
+	&:focus {
+		outline: 0;
+	}
+}
+
+label:hover {
+	cursor: pointer;
+}
+
+input[type="radio"] {
+  appearance:none;
+  height: 100%;
+  margin-left: 40px;
+  margin-right: 8px;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 2px solid white;
+  border-radius: 50%;
+  transition: .2s;
+  cursor:pointer;
+  color: $darkGrey;
+  &:hover, &:checked {
+    background: $pinkRose;
+  }
+  &:checked {
+    background: $darkGrey;
+  } 
+  &:focus { 
+  	outline: 0; 
+  }
+}
+
+p.dateActivity, p.dateNumber {
+	font-size: 25px;
+	margin-bottom: 15px;
+}

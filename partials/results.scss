@@ -1,0 +1,65 @@
+.allResults {
+	position: relative;
+}
+
+.results {
+	text-align: center;
+	position: relative;
+	padding-bottom: 30px;
+	padding-top:30px;
+	margin: 0;
+}
+
+.resultsContainer {
+	text-align: center;
+	width: 70px;
+	height: 100px;
+	margin: 0 auto;
+}
+
+.resultsColor {
+	border-radius: 5px 5px 35px 35px;
+	z-index: 10000;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: -10px;	
+}
+
+.topcoatResult {
+	margin: 300px auto 40px auto;
+}
+
+.colorStyling {
+	color: white;
+	font-weight: 500;
+}
+
+.ui-slider { 
+	max-width: 300px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.entireFinger {
+	position: relative;
+}
+
+#finger {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	height: 250px;
+	width: 85px;
+	margin: 0 auto;
+	border-radius: 38px 38px 3px 3px;
+}
+
+.sliderInfo {
+	font-size: 18px;
+	font-family: 'Yantramanav', sans-serif;
+	color: $pinkRose;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
