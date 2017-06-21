@@ -9,7 +9,7 @@ $pinkRose: #ebd3d1;
 
 body {
 	background-color: $darkGrey;
-	color: $pinkRose;
+	color: $medGrey;
 	text-align: center;
 	font-family: 'Yantramanav', sans-serif;
 	font-weight: 300;
@@ -17,14 +17,21 @@ body {
 }
 
 .container {
-	background-color: $medGrey;
+	background-color: $pinkRose;
+	width: 80%;
 	margin: 0 auto;
 	padding-bottom: 30px;
 	padding-top: 30px;
+	box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.4);
+	border-radius: 3px;
 }
 
-.logo {
+.logo img {
 	text-align: center;
+	height: 200px;
+}
+p{
+	color: $pinkRose;
 }
 
 footer {
@@ -34,6 +41,7 @@ footer {
 	font-size: 15px;
 	p {
 		padding-top: 20px;
+		color: $pinkRose;
 	}
 }
 

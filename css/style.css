@@ -92,6 +92,7 @@ button[disabled], input[disabled] {
   cursor: default; }
 
 input[type=checkbox], input[type=radio] {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0; }
 
@@ -128,32 +129,36 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   height: 0; }
 
 * {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
 h2 {
   margin: 20px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: white;
+  color: #6c7b82;
   font-size: 25px; }
 
 .nailForm p {
-  padding-top: 30px; }
+  padding-top: 10px;
+  color: #6c7b82; }
 
 .button {
   display: block;
   text-align: center;
-  border: 3px solid #DBFBF8;
   background-color: white;
+  -webkit-box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.15);
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.15);
   color: #606368;
   padding: 10px 30px;
-  margin: 50px auto 30px auto;
+  margin: 30px auto 20px auto;
   font-family: 'Rochester', serif;
   font-size: 30px; }
   .button:hover {
     color: white;
     background-color: #606368;
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;
     transition: 0.2s; }
   .button:focus {
     outline: 0; }
@@ -174,11 +179,13 @@ input[type="radio"] {
   background: white;
   border: 2px solid white;
   border-radius: 50%;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
   transition: .2s;
   cursor: pointer;
   color: #606368; }
   input[type="radio"]:hover, input[type="radio"]:checked {
-    background: #ebd3d1; }
+    background: #6c7b82; }
   input[type="radio"]:checked {
     background: #606368; }
   input[type="radio"]:focus {
@@ -248,22 +255,39 @@ p.dateActivity, p.dateNumber {
   margin-top: 10px;
   margin-bottom: 20px; }
 
+#loading {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8) url("http://i.stack.imgur.com/FhHRx.gif") 50% 50% no-repeat; }
+
 body {
   background-color: #606368;
-  color: #ebd3d1;
+  color: #6c7b82;
   text-align: center;
   font-family: 'Yantramanav', sans-serif;
   font-weight: 300;
   font-size: 20px; }
 
 .container {
-  background-color: #6c7b82;
+  background-color: #ebd3d1;
+  width: 80%;
   margin: 0 auto;
   padding-bottom: 30px;
-  padding-top: 30px; }
+  padding-top: 30px;
+  -webkit-box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.4);
+  border-radius: 3px; }
 
-.logo {
-  text-align: center; }
+.logo img {
+  text-align: center;
+  height: 200px; }
+
+p {
+  color: #ebd3d1; }
 
 footer {
   height: 100px;
@@ -271,7 +295,8 @@ footer {
   margin-top: 50px;
   font-size: 15px; }
   footer p {
-    padding-top: 20px; }
+    padding-top: 20px;
+    color: #ebd3d1; }
 
 @media (max-width: 600px) {
   label {

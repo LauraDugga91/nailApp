@@ -5,7 +5,10 @@ var nailApp = {}
 
 nailApp.init = function() {
 	nailApp.getNailInfo();
-	nailApp.Slider();
+	nailApp.loading();
+	nailApp.buttonScroll();
+
+
 }
 
 //get data from the makeup api
@@ -18,7 +21,7 @@ nailApp.getNailInfo = function(){
 		data: {
 			reqUrl: 'http://makeup-api.herokuapp.com/api/v1/products.json',
 		},
-		// useCache: true
+		useCache: true
 	})
 	.then(function(res){
 		var essie = res.filter(function(product) {
@@ -39,7 +42,6 @@ nailApp.getNailInfo = function(){
 			});
 		});
 		var colorCodesSorted = colorCodes.sort();
-		console.log(colorCodesSorted);
 		nailApp.onSubmitOfNails(colorCodesSorted);
 	});
 };
@@ -79,67 +81,10 @@ nailApp.onSubmitOfNails = function(array) {
 		  	colorsArray.push(romanticColors);
 	  	};  	
 	  	nailApp.chooseRandomColor(colorsArray);
-	});
-};
 
-//Choose a random color out of the qualifying colors
+	  	//finger color slider
 
-nailApp.chooseRandomColor = function(colorsArray) {
-	var newArray = colorsArray[0];
-	var randomColor = Math.floor(Math.random() * newArray.length);
-	var finalColor = newArray[randomColor];
-	nailApp.getHex(finalColor);
-	return finalColor;
-};
-
-//pull that color from the original API and get associated hex color
-
-nailApp.getHex = function(finalColor){
-
-// console.log(finalColor); //THIS is my random color
-
-	var essie = nailApp.essie
-	essie.forEach(function(item){
-		var onlyNums = item.product_colors.map(function(color){
-			var ogColour = color.colour_name;
-			var colorNum = ogColour.match(/\d+/g);
-
-			if (colorNum !== null) {
-				var newColorObj = {
-					colorName: ogColour,
-					colorCode: colorNum,
-					hex: color.hex_value
-				};
-
-				if (newColorObj.colorCode[0] === finalColor) {
-					var finalHex = newColorObj.hex;
-					var finalName = newColorObj.colorName;
-					$(".results").html(`<p>Your colour is <span class="colorStyling">${finalName}</span></p>`);
-					$(".resultsContainer").addClass("resultsColor").css('background-color', finalHex);
-				};
-			};
-		});
-	});
-
-// this choice determines the top coat
-
-	var dateNumberChoice = $("input[name=dateNumber]:checked").val() 
-		if (dateNumberChoice === '1'){
-			$(".topcoatResult").html(`with a <span class="colorStyling">glossy</span> topcoat!`);
-		} else if (dateNumberChoice === '2') {
-			$(".topcoatResult").html(`with a <span class="colorStyling">glittery</span> topcoat!`);
-		} else if (dateNumberChoice === '3') {
-			$(".topcoatResult").html(`with a <span class="colorStyling">metallic</span> topcoat!`);
-		} else {
-			$(".topcoatResult").html(`with a <span class="colorStyling">matte</span> topcoat!`);
-		};
-};
-
-//append the color onto the page on a hand, hand has a color slider 
-
-nailApp.Slider = function(slider) {
-	$(".nailForm").on("submit", function(e){
-		e.preventDefault();
+	  	$("#finger").css("background-color", "#ffdbac");
 
 		$("#slider").slider({
 		  	value: 100,
@@ -168,6 +113,81 @@ nailApp.Slider = function(slider) {
 		$(".sliderInfo").text(`Slide me to change skin tones!`);
 	});
 };
+
+//Choose a random color out of the qualifying colors
+
+nailApp.chooseRandomColor = function(colorsArray) {
+	var newArray = colorsArray[0];
+	var randomColor = Math.floor(Math.random() * newArray.length);
+	var finalColor = newArray[randomColor];
+	nailApp.getHex(finalColor);
+	return finalColor;
+};
+
+//pull that color from the original API and get associated hex color
+
+nailApp.getHex = function(finalColor){
+
+// finalColor //THIS is my random color
+
+	var essie = nailApp.essie
+	essie.forEach(function(item){
+		var onlyNums = item.product_colors.map(function(color){
+			var ogColour = color.colour_name;
+			var colorNum = ogColour.match(/\d+/g);
+
+			if (colorNum !== null) {
+				var newColorObj = {
+					colorName: ogColour,
+					colorCode: colorNum,
+					hex: color.hex_value
+				};
+
+				if (newColorObj.colorCode[0] === finalColor) {
+					var finalHex = newColorObj.hex;
+					var finalName = newColorObj.colorName;
+					$(".results").html(`<p>Your colour is <span class="colorStyling">${finalName}</span></p>`);
+					$(".resultsContainer").addClass("resultsColor").css('background-color', finalHex);
+				};
+			};
+		});
+	});
+
+// this choice determines the top coat
+
+	var dateNumberChoice = $("input[name=dateNumber]:checked").val() 
+		if (dateNumberChoice === '1'){
+			$(".topcoatResult").html(`<p>with a <span class="colorStyling">glossy</span> topcoat!</p>`);
+		} else if (dateNumberChoice === '2') {
+			$(".topcoatResult").html(`<p>with a <span class="colorStyling">glittery</span> topcoat!</p>`);
+		} else if (dateNumberChoice === '3') {
+			$(".topcoatResult").html(`<p>with a <span class="colorStyling">metallic</span> topcoat!</p>`);
+		} else {
+			$(".topcoatResult").html(`<p>with a <span class="colorStyling">matte</span> topcoat!</p>`);
+		};
+};
+
+//loading screen while waiting for ajax data
+
+nailApp.loading = function() {
+	$(document).ajaxStart(function(){
+    	$('#loading').show();
+ 	}).ajaxStop(function(){
+    	$('#loading').hide();
+ 	});
+}
+
+
+
+//smoothscroll 
+
+nailApp.buttonScroll = function () {
+    $('.button').on('click', function() {
+    $('html, body').animate({
+        scrollTop: $('.button').offset().top
+    }, 1000);
+  });
+}
 
 
 //only call the init, Name spacing.
